@@ -18,7 +18,20 @@
  * NOTE: If you change these, also change the error_reporting() code below
  *
  */
-	define('ENVIRONMENT', 'production');
+$host = !empty($_SERVER['HTTP_HOST']) ? strtolower($_SERVER['HTTP_HOST']) : 'testing';
+switch(strtolower($_SERVER['HTTP_HOST'])) {
+	case 'ess.local':
+		$environment = 'development';
+		break;
+	case 'testing':
+		$environment = 'testing';
+		break;		
+	default:
+		$environment = 'production';
+		break;
+}
+
+define('ENVIRONMENT', $environment);
 /*
  *---------------------------------------------------------------
  * ERROR REPORTING

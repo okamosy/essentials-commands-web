@@ -197,19 +197,8 @@ AddType text/x-vcard                   vcf
 <IfModule mod_expires.c>
   ExpiresActive on
 
-# Perhaps better to whitelist expires rules? Perhaps.
-  ExpiresDefault                          "access plus 1 month"
-
 # cache.appcache needs re-requests in FF 3.6 (thanks Remy ~Introducing HTML5)
   ExpiresByType text/cache-manifest       "access plus 0 seconds"
-
-# Your document html 
-  ExpiresByType text/html                 "access plus 1 hour"
-  
-# Data
-  ExpiresByType text/xml                  "access plus 1 hour"
-  ExpiresByType application/xml           "access plus 1 hour"
-  ExpiresByType application/json          "access plus 1 hour"
 
 # Feed
   ExpiresByType application/rss+xml       "access plus 1 hour"
